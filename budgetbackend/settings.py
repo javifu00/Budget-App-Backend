@@ -123,9 +123,6 @@ DATABASES = {
     }
 }
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-# MEDIA_URL = "/media/"
-
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -140,7 +137,7 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES["default"].update(db_from_env)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")
 MEDIA_URL = "/media/"
 
 # Password validation
@@ -177,8 +174,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
