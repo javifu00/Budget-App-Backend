@@ -27,7 +27,7 @@ from datetime import timedelta
 SECRET_KEY = "django-insecure-s&=&cp1l3mcbr-wwr)!tz-@^7vcaqq%^k-e9fy%5r-$co^sa-m"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -116,12 +116,29 @@ WSGI_APPLICATION = "budgetbackend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_URL = "/media/"
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "d86hp6b5pivru8",
+        "USER": "uxfpecdtfwuhkd",
+        "PASSWORD": "cf6a95288b3343efad6e7b094674e28bc5fc2bb6b6bb81dca9049118ef3eda0c",
+        "HOST": "ec2-44-196-174-238.compute-1.amazonaws.com",
+        "PORT": "5432",
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES["default"].update(db_from_env)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
