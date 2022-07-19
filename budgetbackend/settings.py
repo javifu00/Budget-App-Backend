@@ -119,8 +119,16 @@ WSGI_APPLICATION = "budgetbackend.wsgi.application"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 import dj_database_url
 
-DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
-
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "df1ega6s090f1q",
+        "USER": "qigxbtbntgnkep",
+        "PASSWORD": "b67f45692b5779d47ff1010ce9f3bd8242fbc1bebc05e055d456bbdbfc120b2b",
+        "HOST": "ec2-34-198-186-145.compute-1.amazonaws.com",
+        "PORT": "5432",
+    }
+}
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES["default"].update(db_from_env)
