@@ -41,10 +41,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "api.apps.ApiConfig",
+    "transaction.apps.TransactionConfig",
+    "goals.apps.GoalsConfig",
     "rest_framework",
     "djmoney",
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
+    "users",
 ]
 
 SIMPLE_JWT = {
@@ -158,6 +161,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "users.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
